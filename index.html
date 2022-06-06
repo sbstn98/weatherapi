@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+    </style>
+</head>
+<body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Open Weather API
+          </h1>
+          <h2 class="subtitle">
+            Current Weather in Hamburg 
+          </h2>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="notification">
+        This container is <strong>centered</strong> on desktop.
+      </div>
+    </div>
+    <script>
+
+        document.addEventListener ("DOMContentLoaded", () => {
+          fetch('https://api.openweathermap.org/data/3.0/onecall?lat=53.5502&lon=9.9920&exclude={hourly,daily}&appid=4b5a6cc68d431d230fdfdbf233ea71bd')
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          })
+        });
+
+
+    </script>
+</body>
+</html>
