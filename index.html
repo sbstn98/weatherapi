@@ -31,11 +31,16 @@
     <script>
 
         document.addEventListener ("DOMContentLoaded", () => {
-          fetch('api.openweathermap.org/data/2.5/forecast?lat=53.5502&lon=9.9920&appid=4b5a6cc68d431d230fdfdbf233ea71bd')
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-          })
+          fetch('https://api.tomorrow.io/v4/timelines')
+          .then(response => {
+            console.log('Response:', response)
+              return response.json();
+            })
+
+          // .then((res) => res.json())
+          // .then((data) => {
+          //  console.log(data);
+          // })
         });
 
 
