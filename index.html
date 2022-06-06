@@ -30,18 +30,20 @@
     </div>
     <script>
 
-        document.addEventListener ("DOMContentLoaded", () => {
-          fetch('https://api.tomorrow.io/v4/timelines?location=-73.98529171943665,40.75872069597532&fields=temperature&timesteps=1h&units=metric&apikey=GdZ0B9DNRtJjnT4td8r9CQOfZ1C6FrYk')
-          // .then(response => {
-          //   console.log('Response:', response)
-          //   return response.json();
-          //  })
+        document.addEventListener ("DOMContentLoaded", getWeather);
 
-          .then((res) => res.json())
-          .then((data) => {
-          console.log(data);
-          })
-        });
+        function getWeather(){
+          e.preventDefault();
+          const key  = '4b5a6cc68d431d230fdfdbf233ea71bd';
+          fetch('https://api.openweathermap.org/data/2.5/weather?id=2911298&appid=' + key)
+          .then(function(resp) { return resp.json() }) // Convert data to json
+          .then(function(data) {
+		      console.log(data);
+	        })
+          .catch(function() {
+            console.log('ERROR!');
+          });
+        }
 
 
     </script>
