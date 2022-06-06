@@ -24,7 +24,7 @@
       </div>
     </section>
     <div class="container">
-      <div class="notification">
+      <div class="notification" id="display">
         This container is <strong>centered</strong> on desktop.
       </div>
     </div>
@@ -36,14 +36,20 @@
           
           const key  = '4b5a6cc68d431d230fdfdbf233ea71bd';
           fetch('https://api.openweathermap.org/data/2.5/weather?id=2911298&appid=' + key)
-          .then(function(resp) { return resp.json() }) // Convert data to json
+            .then(function(resp) { 
+              return resp.json() }) // Convert data to json
           .then(function(data) {
-		      console.log(data);
+		          console.log(data);
+              let display = document.getElementById('display');
+              let celsius = Math.round(parseFloat(data.main.temp)-273.15);
+              display.innerHTML = 
+              '<h1 class="title">' + data.name + '</h1>'+ '<br>' + '<h2 class="subtitle">' + data.weather[0].description + '</h2>' + '<br>'+ '<h1 class="title">' + celsius + '</h1>' + 'Grad';
 	        })
           .catch(function() {
-            console.log('ERROR!');
+              console.log('ERROR!');
           });
-        }
+        };
+
 
 
     </script>
