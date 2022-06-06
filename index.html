@@ -31,7 +31,7 @@
     <script>
 
         document.addEventListener ("DOMContentLoaded", () => {
-          fetch('https://api.openweathermap.org/data/3.0/onecall?lat=53.5502&lon=9.9920&exclude={hourly,daily}&appid=4b5a6cc68d431d230fdfdbf233ea71bd')
+          fetch('api.openweathermap.org/data/2.5/forecast?lat=53.5502&lon=9.9920&appid=4b5a6cc68d431d230fdfdbf233ea71bd')
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
